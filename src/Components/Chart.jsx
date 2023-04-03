@@ -9,8 +9,45 @@ import {
 } from "recharts";
 
 const Chart = (props) => {
-  let jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, mon, tue, wed, thur, fri, sat, sun;
-  jan = feb = mar = apr = may = jun = jul = aug = sep = oct = nov = dec = mon = tue = wed = thur = fri = sat = sun = 0;
+  let jan,
+    feb,
+    mar,
+    apr,
+    may,
+    jun,
+    jul,
+    aug,
+    sep,
+    oct,
+    nov,
+    dec,
+    mon,
+    tue,
+    wed,
+    thur,
+    fri,
+    sat,
+    sun;
+  jan =
+    feb =
+    mar =
+    apr =
+    may =
+    jun =
+    jul =
+    aug =
+    sep =
+    oct =
+    nov =
+    dec =
+    mon =
+    tue =
+    wed =
+    thur =
+    fri =
+    sat =
+    sun =
+      0;
 
   props.list.forEach((holiday) => {
     if (holiday.date.includes("-01-")) {
@@ -82,35 +119,39 @@ const Chart = (props) => {
   ];
 
   const weekdayData = [
-    {weekday: "Mon", totalHolidays: mon },
-    {weekday: "Tue", totalHolidays: tue },
-    {weekday: "Wed", totalHolidays: wed },
-    {weekday: "Thur", totalHolidays: thur },
-    {weekday: "Fri", totalHolidays: fri },
-    {weekday: "Sat", totalHolidays: sat },
-    {weekday: "Sun", totalHolidays: sun },
-  ]
+    { weekday: "Mon", totalHolidays: mon },
+    { weekday: "Tue", totalHolidays: tue },
+    { weekday: "Wed", totalHolidays: wed },
+    { weekday: "Thur", totalHolidays: thur },
+    { weekday: "Fri", totalHolidays: fri },
+    { weekday: "Sat", totalHolidays: sat },
+    { weekday: "Sun", totalHolidays: sun },
+  ];
 
   return (
-    <>
+    <div className="charts">
       <LineChart
-        width={600}
+        width={400}
         height={300}
         data={monthData}
-        margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+        margin={{ top: 50, right: 20, bottom: 5, left: 0 }}>
         <Line type="monotone" dataKey="totalHolidays" stroke="#4baee0" />
         <XAxis dataKey="month" />
         <YAxis />
         <Tooltip />
       </LineChart>
 
-      <BarChart width={600} height={300} data={weekdayData}>
+      <BarChart
+        width={400}
+        height={300}
+        data={weekdayData}
+        margin={{ top: 50, right: 20, bottom: 5, left: 0 }}>
         <XAxis dataKey="weekday" />
         <YAxis />
         <Tooltip />
         <Bar dataKey="totalHolidays" barSize={30} fill="#4baee0" />
       </BarChart>
-    </>
+    </div>
   );
 };
 

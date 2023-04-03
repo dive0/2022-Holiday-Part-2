@@ -67,14 +67,15 @@ function App() {
         list={list}
       />
 
-      <DataTable
-        searchDate={searchDate}
-        searchChoice={searchChoice}
-        filteredResult={filteredResult}
-        list={list}
-      />
-
-      <Chart list={list} />
+      <div className="data">
+        <DataTable
+          searchDate={searchDate}
+          searchChoice={searchChoice}
+          filteredResult={filteredResult}
+          list={list}
+        />
+        <Chart list={list} />
+      </div>
     </div>
   );
 }

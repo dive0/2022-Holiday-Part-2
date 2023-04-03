@@ -25,11 +25,18 @@ const HolidayDetails = () => {
   }, []);
 
   return (
-    <>
+    <div className="holidayDetail">
       <h1>{selectedHoliday.name}</h1>
 
-      <button onClick={() => navigate("/")}>Go Back</button>
-    </>
+      <div className="details">
+        <p>Date: {selectedHoliday.date}</p>
+        <p>Observed Date: {selectedHoliday.observed}</p>
+        <p>Public: {selectedHoliday.public ? "Yes" : "No"}</p>
+        <p>Country: {selectedHoliday.country}</p>
+      </div>
+
+      <button id="backButton" onClick={() => navigate("/")}>Go Back</button>
+    </div>
   )
 }
 

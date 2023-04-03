@@ -1,0 +1,29 @@
+.holidayDetail {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.details {
+  color: rgb(73, 70, 97);
+  background: #8fb2d9;
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 40px;
+  width: 100%;
+  margin: 10px;
+}
+
+.details p {
+  margin: 20px;
+}
+
+#backButton {
+  margin-top: 10px;
+  font-size: 1rem;
+  height: 40px;
+  width: 90px;
+  border-radius: 40px;
+}

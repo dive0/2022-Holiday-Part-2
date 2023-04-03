@@ -5,6 +5,7 @@ const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
 import DataTable from "./Components/DataTable";
 import SearchForm from "./Components/SearchForm";
+import Chart from "./Components/Chart";
 
 function App() {
   const [list, setList] = useState([]);
@@ -72,6 +73,8 @@ function App() {
         filteredResult={filteredResult}
         list={list}
       />
+
+      <Chart list={list} />
     </div>
   );
 }

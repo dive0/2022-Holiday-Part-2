@@ -1,15 +1,16 @@
 import {
   LineChart,
   Line,
-  CartesianGrid,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
   Tooltip,
 } from "recharts";
 
 const Chart = (props) => {
-  let jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec;
-  jan = feb = mar = apr = may = jun = jul = aug = sep = oct = nov = dec = 0;
+  let jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, mon, tue, wed, thur, fri, sat, sun;
+  jan = feb = mar = apr = may = jun = jul = aug = sep = oct = nov = dec = mon = tue = wed = thur = fri = sat = sun = 0;
 
   props.list.forEach((holiday) => {
     if (holiday.date.includes("-01-")) {
@@ -37,6 +38,32 @@ const Chart = (props) => {
     } else if (holiday.date.includes("-12-")) {
       dec++;
     }
+
+    switch (holiday.weekday.date.name) {
+      case "Monday":
+        mon++;
+        break;
+      case "Tuesday":
+        tue++;
+        break;
+      case "Wednesday":
+        wed++;
+        break;
+      case "Thursday":
+        thur++;
+        break;
+      case "Friday":
+        fri++;
+        break;
+      case "Saturday":
+        sat++;
+        break;
+      case "Sunday":
+        sun++;
+        break;
+      default:
+        break;
+    }
   });
 
   const monthData = [
@@ -54,19 +81,36 @@ const Chart = (props) => {
     { month: "Dec", totalHolidays: dec },
   ];
 
+  const weekdayData = [
+    {weekday: "Mon", totalHolidays: mon },
+    {weekday: "Tue", totalHolidays: tue },
+    {weekday: "Wed", totalHolidays: wed },
+    {weekday: "Thur", totalHolidays: thur },
+    {weekday: "Fri", totalHolidays: fri },
+    {weekday: "Sat", totalHolidays: sat },
+    {weekday: "Sun", totalHolidays: sun },
+  ]
+
   return (
-    <div>
+    <>
       <LineChart
         width={600}
         height={300}
         data={monthData}
         margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-        <Line type="monotone" dataKey="totalHolidays" stroke="#8884d8" />
+        <Line type="monotone" dataKey="totalHolidays" stroke="#4baee0" />
         <XAxis dataKey="month" />
         <YAxis />
         <Tooltip />
       </LineChart>
-    </div>
+
+      <BarChart width={600} height={300} data={weekdayData}>
+        <XAxis dataKey="weekday" />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="totalHolidays" barSize={30} fill="#4baee0" />
+      </BarChart>
+    </>
   );
 };
 

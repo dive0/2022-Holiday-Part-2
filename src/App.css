@@ -83,6 +83,10 @@ tbody:nth-child(even) {
   background-color: #abcaff;
 }
 
+tr:hover {
+  cursor: pointer;
+}
+
 .summary {
   margin: 15px auto;
   color: white;

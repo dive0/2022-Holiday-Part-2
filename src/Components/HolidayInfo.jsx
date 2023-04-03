@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 const HolidayInfo = (props) => {
+  const navigate = useNavigate();
+
   return (
     <tbody>
-      <tr>
+      <tr onClick={() => navigate(`/HolidayDetails/${props.uuid}`)}>
         <td>{props.name}</td>
         <td>{props.date}</td>
         <td>{props.observedDate}</td>

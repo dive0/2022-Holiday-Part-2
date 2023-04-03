@@ -1,4 +1,5 @@
 import HolidayInfo from "./HolidayInfo";
+
 const DataTable = (props) => {
   return (
     <div>
@@ -21,6 +22,7 @@ const DataTable = (props) => {
                 observedDate={holiday.observed}
                 weekday={holiday.weekday.date.name}
                 public={holiday.public}
+                uuid={holiday.uuid}
                 key={holiday.name}
               />
             ))
@@ -32,12 +34,13 @@ const DataTable = (props) => {
                 observedDate={holiday.observed}
                 weekday={holiday.weekday.date.name}
                 public={holiday.public}
+                uuid={holiday.uuid}
                 key={holiday.name}
               />
             ))}
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default DataTable
+export default DataTable;
